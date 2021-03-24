@@ -29,13 +29,13 @@ class _HomePageState extends State<HomePage> {
             return ListView.builder(
                 itemCount: snapshot.data.message.body.artistList.length,
                 itemBuilder: (context, index) {
-                  var bum = snapshot.data.message.body.artistList[index];
+                  var artistsList = snapshot.data.message.body.artistList[index];
                   return Container(
                     height: 100,
                     color: Colors.blue[100],
                     child: Row(
                       children: <Widget>[
-                        Text(bum.artist.artistName, textAlign: TextAlign.center)
+                        Text(artistsList.artist.artistName, textAlign: TextAlign.center)
                       ],
                     ),
                   );
