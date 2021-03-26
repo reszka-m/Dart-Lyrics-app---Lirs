@@ -25,9 +25,9 @@ class Top6 extends StatelessWidget {
           var artists1 = snapshot.data.message.body.artistList[0];
           var artists2 = snapshot.data.message.body.artistList[1];
           var artists3 = snapshot.data.message.body.artistList[2];
-          var artists4 = snapshot.data.message.body.artistList[2];
-          var artists5 = snapshot.data.message.body.artistList[2];
-          var artists6 = snapshot.data.message.body.artistList[2];
+          var artists4 = snapshot.data.message.body.artistList[3];
+          var artists5 = snapshot.data.message.body.artistList[4];
+          var artists6 = snapshot.data.message.body.artistList[5];
           return Column(
             children: [
               Row(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:interakcja_zal/models/albums.dart';
 import 'package:interakcja_zal/services/api-manager.dart';
 import 'package:interakcja_zal/models/artistsinfo.dart';
 
@@ -8,11 +9,11 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
-  Future<Art> _artist_list;
+  Future<Albums> _albums;
 
   @override
   void initState() {
-    _artist_list = API_Manager().getArtists();
+    _albums = API_Manager().getAlbums();
     super.initState();
   }
 
@@ -23,21 +24,21 @@ class _BodyState extends State<Body> {
         leading: Icon(Icons.thumb_down),
       ),
       body: Container(
-          child: FutureBuilder<Art>(
-        future: _artist_list,
+          child: FutureBuilder<Albums>(
+        future: _albums,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             return ListView.builder(
-                itemCount: snapshot.data.message.body.artistList.length,
+                itemCount: snapshot.data.message.body.albumList.length,
                 itemBuilder: (context, index) {
                   var artistsList =
-                      snapshot.data.message.body.artistList[index];
+                      snapshot.data.message.body.albumList[index];
                   return Container(
                     height: 100,
                     color: Colors.blue[100],
                     child: Row(
                       children: <Widget>[
-                        Text(artistsList.artist.artistName,
+                        Text(artistsList.album.albumName,
                             textAlign: TextAlign.center)
                       ],
                     ),

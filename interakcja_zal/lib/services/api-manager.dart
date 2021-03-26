@@ -2,8 +2,10 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:interakcja_zal/models/albums.dart';
 
 import 'package:interakcja_zal/models/artistsinfo.dart';
+import 'package:interakcja_zal/models/lyrics.dart';
 
 class API_Manager {
   Future<Art> getArtists() async {
@@ -12,7 +14,7 @@ class API_Manager {
 
     try {
       var response = await client.get(Uri.parse(
-          'https://api.musixmatch.com/ws/1.1/chart.artists.get?page=1&page_size=3&country=it&apikey=eb7a33bd10b9eac57fe5fa0905684492'));
+          'https://api.musixmatch.com/ws/1.1/chart.artists.get?page=1&page_size=6&country=pl&apikey=eb7a33bd10b9eac57fe5fa0905684492'));
 
       if (response.statusCode == 200) {
         var jsonString = response.body;
@@ -25,5 +27,46 @@ class API_Manager {
       return artistList;
     }
     return artistList;
+  }
+
+  Future<Albums> getAlbums() async {
+    var client = http.Client();
+    var albums;
+
+    try {
+      var response = await client.get(Uri.parse(
+          'https://api.musixmatch.com/ws/1.1/artist.albums.get?artist_id=$idArtysty&s_release_date=desc&g_album_name=1&apikey=eb7a33bd10b9eac57fe5fa0905684492'));
+
+      if (response.statusCode == 200) {
+        var jsonString = response.body;
+        var jsonMap = json.decode(jsonString);
+
+        var albums = Albums.fromJson(jsonMap);
+        return albums;
+      }
+    } catch (Expection) {
+      return albums;
+    }
+    return albums;
+  }
+  Future<Lyrics> getLyrics() async {
+    var client = http.Client();
+    var lyrics;
+
+    try {
+      var response = await client.get(Uri.parse(
+          'https://api.musixmatch.com/ws/1.1/matcher.lyrics.get?q_track=$searchsongname&q_artist=$searchartistname&apikey=eb7a33bd10b9eac57fe5fa0905684492'));
+
+      if (response.statusCode == 200) {
+        var jsonString = response.body;
+        var jsonMap = json.decode(jsonString);
+
+        var lyrics = Lyrics.fromJson(jsonMap);
+        return lyrics;
+      }
+    } catch (Expection) {
+      return lyrics;
+    }
+    return lyrics;
   }
 }
