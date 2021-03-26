@@ -40,15 +40,15 @@ class Top6 extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  SingleTile(size: size, keyArtist: artists1.artist.artistName),
-                  SingleTile(size: size, keyArtist: artists2.artist.artistName),
+                  SingleTile(size: size, keyArtist: artists3.artist.artistName),
+                  SingleTile(size: size, keyArtist: artists4.artist.artistName),
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  SingleTile(size: size, keyArtist: artists1.artist.artistName),
-                  SingleTile(size: size, keyArtist: artists2.artist.artistName),
+                  SingleTile(size: size, keyArtist: artists5.artist.artistName),
+                  SingleTile(size: size, keyArtist: artists6.artist.artistName),
                 ],
               ),
             ],

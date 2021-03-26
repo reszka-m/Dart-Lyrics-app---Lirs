@@ -5,6 +5,7 @@ import 'package:interakcja_zal/models/artistsinfo.dart';
 
 import '../../app_icons.dart';
 import 'components/logo.dart';
+import 'components/tekst_glowny.dart';
 import 'components/top6_list.dart';
 
 class Body1 extends StatefulWidget {
@@ -28,32 +29,12 @@ class _Body1State extends State<Body1> {
       body: Column(
         children: [
           Logo(),
-          Container(
-            margin:
-                EdgeInsets.only(top: kDefaultPadding, bottom: kDefaultPadding),
-            height: 120,
-            child: Center(
-              child: Text(
-                'Top 6 \nartystów z Polski',
-                style: TextStyle(
-                  shadows: <Shadow>[
-                    Shadow(
-                      offset: Offset(0, 4),
-                      blurRadius: 4,
-                      color: Colors.black.withOpacity(0.5),
-                    ),
-                  ],
-                  fontSize: 34,
-                  color: kSecondaryColor,
-                  fontWeight: FontWeight.bold,
-                ),
-                textAlign: TextAlign.center,
-              ),
-            ),
-          ),
+          TekstGlowny(),
           Top6(artist_List: _artist_List, size: size),
         ],
       ),
     );
   }
 }
+
+
