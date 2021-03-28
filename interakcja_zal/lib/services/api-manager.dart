@@ -35,7 +35,7 @@ class API_Manager {
 
     try {
       var response = await client.get(Uri.parse(
-          'https://api.musixmatch.com/ws/1.1/artist.albums.get?artist_id=676&s_release_date=desc&g_album_name=1&apikey=eb7a33bd10b9eac57fe5fa0905684492'));
+          'https://api.musixmatch.com/ws/1.1/artist.albums.get?artist_id=1039&s_release_date=desc&g_album_name=1&apikey=eb7a33bd10b9eac57fe5fa0905684492'));
 
       if (response.statusCode == 200) {
         var jsonString = response.body;
