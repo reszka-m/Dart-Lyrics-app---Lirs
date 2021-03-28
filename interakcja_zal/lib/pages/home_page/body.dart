@@ -7,17 +7,19 @@ import 'package:interakcja_zal/models/artistsinfo.dart';
 import '../../constants.dart';
 import '../../constants.dart';
 
-class Body extends StatefulWidget {
+class Pizda extends StatefulWidget {
   @override
-  _BodyState createState() => _BodyState();
+  _Bum createState() => _Bum();
 }
 
-class _BodyState extends State<Body> {
+class _Bum extends State<Pizda> {
   Future<Albums> _albums;
 
   @override
+  int id;
+
   void initState() {
-    _albums = API_Manager().getAlbums();
+    _albums = API_Manager().getAlbums(this.id);
     super.initState();
   }
 

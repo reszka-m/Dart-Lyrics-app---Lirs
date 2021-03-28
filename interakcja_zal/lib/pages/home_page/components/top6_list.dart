@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:interakcja_zal/models/artistsinfo.dart';
-
+import 'package:interakcja_zal/services/api-manager.dart';
+import '../body.dart';
 import '../../../constants.dart';
 
 class Top6 extends StatelessWidget {
@@ -28,6 +29,7 @@ class Top6 extends StatelessWidget {
           var artists4 = snapshot.data.message.body.artistList[3];
           var artists5 = snapshot.data.message.body.artistList[4];
           var artists6 = snapshot.data.message.body.artistList[5];
+
           return Column(
             children: [
               Row(
@@ -38,6 +40,11 @@ class Top6 extends StatelessWidget {
                         size: size, keyArtist: artists1.artist.artistName),
                     onDoubleTap: () {
                       print(artists1.artist.artistId);
+                      API_Manager().getAlbums(artists1.artist.artistId);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Pizda()),
+                      );
                     },
                   ),
                   GestureDetector(
@@ -101,12 +108,10 @@ class SingleTile extends StatelessWidget {
     Key key,
     @required this.size,
     @required this.keyArtist,
-    @required this.showAlbums,
   }) : super(key: key);
 
   final Size size;
   final String keyArtist;
-  final String showAlbums;
 
   @override
   Widget build(BuildContext context) {

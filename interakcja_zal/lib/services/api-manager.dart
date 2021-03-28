@@ -29,13 +29,13 @@ class API_Manager {
     return artistList;
   }
 
-  Future<Albums> getAlbums() async {
+  Future<Albums> getAlbums(wybraneID) async {
     var client = http.Client();
     var albums;
-
+    
     try {
       var response = await client.get(Uri.parse(
-          'https://api.musixmatch.com/ws/1.1/artist.albums.get?artist_id=1039&s_release_date=desc&g_album_name=1&apikey=eb7a33bd10b9eac57fe5fa0905684492'));
+          'https://api.musixmatch.com/ws/1.1/artist.albums.get?artist_id=${wybraneID}&s_release_date=desc&g_album_name=1&apikey=eb7a33bd10b9eac57fe5fa0905684492'));
 
       if (response.statusCode == 200) {
         var jsonString = response.body;
@@ -44,6 +44,7 @@ class API_Manager {
         var albums = Albums.fromJson(jsonMap);
 
         return albums;
+        
       }
     } catch (Expection) {
       return albums;
