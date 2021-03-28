@@ -36,5 +36,3 @@ class _Body1State extends State<Body1> {
     );
   }
 }
-
-

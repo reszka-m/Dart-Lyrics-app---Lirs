@@ -35,13 +35,14 @@ class API_Manager {
 
     try {
       var response = await client.get(Uri.parse(
-          'https://api.musixmatch.com/ws/1.1/artist.albums.get?artist_id=$idArtysty&s_release_date=desc&g_album_name=1&apikey=eb7a33bd10b9eac57fe5fa0905684492'));
+          'https://api.musixmatch.com/ws/1.1/artist.albums.get?artist_id=676&s_release_date=desc&g_album_name=1&apikey=eb7a33bd10b9eac57fe5fa0905684492'));
 
       if (response.statusCode == 200) {
         var jsonString = response.body;
         var jsonMap = json.decode(jsonString);
 
         var albums = Albums.fromJson(jsonMap);
+
         return albums;
       }
     } catch (Expection) {
@@ -49,13 +50,14 @@ class API_Manager {
     }
     return albums;
   }
+
   Future<Lyrics> getLyrics() async {
     var client = http.Client();
     var lyrics;
 
     try {
       var response = await client.get(Uri.parse(
-          'https://api.musixmatch.com/ws/1.1/matcher.lyrics.get?q_track=$searchsongname&q_artist=$searchartistname&apikey=eb7a33bd10b9eac57fe5fa0905684492'));
+          'https://api.musixmatch.com/ws/1.1/matcher.lyrics.get?q_track=sexy%20and%20i%20know%20it&q_artist=lmfao&apikey=eb7a33bd10b9eac57fe5fa0905684492'));
 
       if (response.statusCode == 200) {
         var jsonString = response.body;

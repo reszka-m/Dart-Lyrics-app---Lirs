@@ -33,22 +33,58 @@ class Top6 extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  SingleTile(size: size, keyArtist: artists1.artist.artistName),
-                  SingleTile(size: size, keyArtist: artists2.artist.artistName),
+                  GestureDetector(
+                    child: SingleTile(
+                        size: size, keyArtist: artists1.artist.artistName),
+                    onDoubleTap: () {
+                      print(artists1.artist.artistId);
+                    },
+                  ),
+                  GestureDetector(
+                    child: SingleTile(
+                        size: size, keyArtist: artists2.artist.artistName),
+                    onDoubleTap: () {
+                      print(artists2.artist.artistId);
+                    },
+                  )
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  SingleTile(size: size, keyArtist: artists3.artist.artistName),
-                  SingleTile(size: size, keyArtist: artists4.artist.artistName),
+                  GestureDetector(
+                    child: SingleTile(
+                        size: size, keyArtist: artists3.artist.artistName),
+                    onDoubleTap: () {
+                      print(artists3.artist.artistId);
+                    },
+                  ),
+                  GestureDetector(
+                    child: SingleTile(
+                        size: size, keyArtist: artists4.artist.artistName),
+                    onDoubleTap: () {
+                      print(artists4.artist.artistId);
+                    },
+                  ),
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  SingleTile(size: size, keyArtist: artists5.artist.artistName),
-                  SingleTile(size: size, keyArtist: artists6.artist.artistName),
+                  GestureDetector(
+                    child: SingleTile(
+                        size: size, keyArtist: artists5.artist.artistName),
+                    onDoubleTap: () {
+                      print(artists5.artist.artistId);
+                    },
+                  ),
+                  GestureDetector(
+                    child: SingleTile(
+                        size: size, keyArtist: artists6.artist.artistName),
+                    onDoubleTap: () {
+                      print(artists6.artist.artistId);
+                    },
+                  ),
                 ],
               ),
             ],
@@ -65,10 +101,12 @@ class SingleTile extends StatelessWidget {
     Key key,
     @required this.size,
     @required this.keyArtist,
+    @required this.showAlbums,
   }) : super(key: key);
 
   final Size size;
   final String keyArtist;
+  final String showAlbums;
 
   @override
   Widget build(BuildContext context) {
