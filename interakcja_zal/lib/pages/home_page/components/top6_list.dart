@@ -34,10 +34,7 @@ class Top6 extends StatelessWidget {
           var artists5 = snapshot.data.message.body.artistList[4];
           var artists6 = snapshot.data.message.body.artistList[5];
 
-          List<int> artistId = [
-            artists1.artist.artistId,
-            artists2.artist.artistId,
-          ];
+          int artistId;
 
           return Column(
             children: [
@@ -49,12 +46,12 @@ class Top6 extends StatelessWidget {
                         size: size, keyArtist: artists1.artist.artistName),
                     onDoubleTap: () {
                       print(artists1.artist.artistId);
-                      API_Manager().getAlbums(artists1.artist.artistId);
+                      
                       Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: (context) => Pizda(
-                                  artistId: [0],
+                                  artistId: artists1.artist.artistId,
                                 )),
                       );
                     },
@@ -63,10 +60,12 @@ class Top6 extends StatelessWidget {
                     child: SingleTile(
                         size: size, keyArtist: artists2.artist.artistName),
                     onDoubleTap: () {
-                      Navigator.pushNamed(
+                      Navigator.push(
                         context,
-                        '/pizda',
-                        arguments: artistId[1],
+                        MaterialPageRoute(
+                            builder: (context) => Pizda(
+                                  artistId: artists2.artist.artistId,
+                                )),
                       );
                     },
                   )
@@ -79,14 +78,26 @@ class Top6 extends StatelessWidget {
                     child: SingleTile(
                         size: size, keyArtist: artists3.artist.artistName),
                     onDoubleTap: () {
-                      print(artists3.artist.artistId);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => Pizda(
+                                  artistId: artists3.artist.artistId,
+                                )),
+                      );
                     },
                   ),
                   GestureDetector(
                     child: SingleTile(
                         size: size, keyArtist: artists4.artist.artistName),
                     onDoubleTap: () {
-                      print(artists4.artist.artistId);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => Pizda(
+                                  artistId: artists4.artist.artistId,
+                                )),
+                      );
                     },
                   ),
                 ],
@@ -98,14 +109,26 @@ class Top6 extends StatelessWidget {
                     child: SingleTile(
                         size: size, keyArtist: artists5.artist.artistName),
                     onDoubleTap: () {
-                      print(artists5.artist.artistId);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => Pizda(
+                                  artistId: artists5.artist.artistId,
+                                )),
+                      );
                     },
                   ),
                   GestureDetector(
                     child: SingleTile(
                         size: size, keyArtist: artists6.artist.artistName),
                     onDoubleTap: () {
-                      print(artists6.artist.artistId);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => Pizda(
+                                  artistId: artists6.artist.artistId,
+                                )),
+                      );
                     },
                   ),
                 ],

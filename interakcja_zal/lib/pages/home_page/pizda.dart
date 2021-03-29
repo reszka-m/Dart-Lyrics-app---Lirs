@@ -4,7 +4,7 @@ import 'package:interakcja_zal/models/albums.dart';
 import 'package:interakcja_zal/services/api-manager.dart';
 
 class Pizda extends StatefulWidget {
-  final List<int> artistId;
+  final int artistId;
   static String routeName = '/pizda';
 
   Pizda({
@@ -18,7 +18,7 @@ class Pizda extends StatefulWidget {
 
 class _PizdaState extends State<Pizda> {
   Future<Albums> _albums;
-  final List<int> artistId;
+  final int artistId;
 
   _PizdaState(this.artistId);
 
