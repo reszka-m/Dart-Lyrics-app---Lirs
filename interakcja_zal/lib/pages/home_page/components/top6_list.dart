@@ -4,8 +4,6 @@ import 'package:interakcja_zal/services/api-manager.dart';
 import '../../../constants.dart';
 import '../pizda.dart';
 
-
-
 class Top6 extends StatelessWidget {
   const Top6({
     Key key,
@@ -34,7 +32,7 @@ class Top6 extends StatelessWidget {
           var artists5 = snapshot.data.message.body.artistList[4];
           var artists6 = snapshot.data.message.body.artistList[5];
 
-          int artistId;
+          var asd = snapshot.data.message.body.artistList[1].artist.artistName;
 
           return Column(
             children: [
@@ -46,13 +44,14 @@ class Top6 extends StatelessWidget {
                         size: size, keyArtist: artists1.artist.artistName),
                     onDoubleTap: () {
                       print(artists1.artist.artistId);
-                      
+
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => Pizda(
-                                  artistId: artists1.artist.artistId,
-                                )),
+                          builder: (context) => Pizda(
+                            artistId: artists1.artist.artistId,
+                          ),
+                        ),
                       );
                     },
                   ),
@@ -63,9 +62,10 @@ class Top6 extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => Pizda(
-                                  artistId: artists2.artist.artistId,
-                                )),
+                          builder: (context) => Pizda(
+                            artistId: artists2.artist.artistId,
+                          ),
+                        ),
                       );
                     },
                   )
@@ -81,9 +81,10 @@ class Top6 extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => Pizda(
-                                  artistId: artists3.artist.artistId,
-                                )),
+                          builder: (context) => Pizda(
+                            artistId: artists3.artist.artistId,
+                          ),
+                        ),
                       );
                     },
                   ),
@@ -94,9 +95,10 @@ class Top6 extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => Pizda(
-                                  artistId: artists4.artist.artistId,
-                                )),
+                          builder: (context) => Pizda(
+                            artistId: artists4.artist.artistId,
+                          ),
+                        ),
                       );
                     },
                   ),
@@ -112,9 +114,10 @@ class Top6 extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => Pizda(
-                                  artistId: artists5.artist.artistId,
-                                )),
+                          builder: (context) => Pizda(
+                            artistId: artists5.artist.artistId,
+                          ),
+                        ),
                       );
                     },
                   ),
@@ -125,9 +128,10 @@ class Top6 extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => Pizda(
-                                  artistId: artists6.artist.artistId,
-                                )),
+                          builder: (context) => Pizda(
+                            artistId: artists6.artist.artistId,
+                          ),
+                        ),
                       );
                     },
                   ),
