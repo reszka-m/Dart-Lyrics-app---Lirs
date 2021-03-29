@@ -1,21 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:interakcja_zal/models/artistsinfo.dart';
 import 'package:interakcja_zal/services/api-manager.dart';
-import '../body.dart';
 import '../../../constants.dart';
+import '../pizda.dart';
+
+
 
 class Top6 extends StatelessWidget {
   const Top6({
     Key key,
-    @required Future<Art> artist_List,
     @required this.size,
+    @required Future<Art> artist_List,
     this.keyArtist,
+    this.artistId,
   })  : _artist_List = artist_List,
         super(key: key);
 
-  final Future<Art> _artist_List;
   final Size size;
   final String keyArtist;
+  final int artistId;
+  final Future<Art> _artist_List;
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +34,11 @@ class Top6 extends StatelessWidget {
           var artists5 = snapshot.data.message.body.artistList[4];
           var artists6 = snapshot.data.message.body.artistList[5];
 
+          List<int> artistId = [
+            artists1.artist.artistId,
+            artists2.artist.artistId,
+          ];
+
           return Column(
             children: [
               Row(
@@ -43,7 +52,10 @@ class Top6 extends StatelessWidget {
                       API_Manager().getAlbums(artists1.artist.artistId);
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => Pizda()),
+                        MaterialPageRoute(
+                            builder: (context) => Pizda(
+                                  artistId: [0],
+                                )),
                       );
                     },
                   ),
@@ -51,7 +63,11 @@ class Top6 extends StatelessWidget {
                     child: SingleTile(
                         size: size, keyArtist: artists2.artist.artistName),
                     onDoubleTap: () {
-                      print(artists2.artist.artistId);
+                      Navigator.pushNamed(
+                        context,
+                        '/pizda',
+                        arguments: artistId[1],
+                      );
                     },
                   )
                 ],

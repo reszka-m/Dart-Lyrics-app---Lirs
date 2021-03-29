@@ -2,24 +2,29 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:interakcja_zal/models/albums.dart';
 import 'package:interakcja_zal/services/api-manager.dart';
-import 'package:interakcja_zal/models/artistsinfo.dart';
-
-import '../../constants.dart';
-import '../../constants.dart';
 
 class Pizda extends StatefulWidget {
+  final List<int> artistId;
+  static String routeName = '/pizda';
+
+  Pizda({
+    Key key,
+    this.artistId,
+  }) : super(key: key);
+
   @override
-  _Bum createState() => _Bum();
+  _PizdaState createState() => _PizdaState(artistId);
 }
 
-class _Bum extends State<Pizda> {
+class _PizdaState extends State<Pizda> {
   Future<Albums> _albums;
+  final List<int> artistId;
+
+  _PizdaState(this.artistId);
 
   @override
-  int id;
-
   void initState() {
-    _albums = API_Manager().getAlbums(this.id);
+    _albums = API_Manager().getAlbums(this.artistId);
     super.initState();
   }
 

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:interakcja_zal/pages/home_page/body.dart';
 import 'package:interakcja_zal/pages/home_page/body1.dart';
 
 class HomePage extends StatelessWidget {

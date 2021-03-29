@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:interakcja_zal/constants.dart';
 import 'package:interakcja_zal/services/api-manager.dart';
 import 'package:interakcja_zal/models/artistsinfo.dart';
-
-import '../../app_icons.dart';
 import 'components/logo.dart';
 import 'components/tekst_glowny.dart';
 import 'components/top6_list.dart';
