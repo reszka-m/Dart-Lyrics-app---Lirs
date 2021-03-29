@@ -10,13 +10,13 @@ class TekstGlowny extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin:
-          EdgeInsets.only(top: kDefaultPadding, bottom: kDefaultPadding),
+      margin: EdgeInsets.only(top: kDefaultPadding, bottom: kDefaultPadding),
       height: 120,
       child: Center(
         child: Text(
           'Top 6 \nartystów z Polski',
           style: TextStyle(
+            fontFamily: 'Poppins',
             shadows: <Shadow>[
               Shadow(
                 offset: Offset(0, 4),

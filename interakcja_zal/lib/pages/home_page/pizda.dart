@@ -8,22 +8,25 @@ import 'components/logo.dart';
 
 class Pizda extends StatefulWidget {
   final int artistId;
+  final String artistNAME;
   static String routeName = '/pizda';
 
   Pizda({
     Key key,
     this.artistId,
+    this.artistNAME,
   }) : super(key: key);
 
   @override
-  _PizdaState createState() => _PizdaState(artistId);
+  _PizdaState createState() => _PizdaState(artistId, artistNAME);
 }
 
 class _PizdaState extends State<Pizda> {
   Future<Albums> _albums;
   final int artistId;
+  final String artistNAME;
 
-  _PizdaState(this.artistId);
+  _PizdaState(this.artistId, this.artistNAME);
 
   @override
   void initState() {
@@ -41,10 +44,20 @@ class _PizdaState extends State<Pizda> {
           mainAxisSize: MainAxisSize.max,
           children: <Widget>[
             SizedBox(
-              child: Text("fdf"),
+              child: Logo(),
             ),
-            Logo(),
-            Padding(padding: EdgeInsets.fromLTRB(0, 10.0, 5.0, 2.0)),
+            SizedBox(
+              child: Text(
+                "Albumy wykonawcy:\n" + artistNAME,
+                style: TextStyle(
+                  fontFamily: 'Poppins',
+                  fontWeight: FontWeight.w700,
+                  color: kSecondaryColor,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              width: 250,
+            ),
           ],
         ),
       ),
@@ -74,8 +87,9 @@ class _PizdaState extends State<Pizda> {
                           child: Text(
                             "Data wydania: " + "\n" + datastring,
                             style: TextStyle(
-                                color: Colors.white70,
-                                fontStyle: FontStyle.italic,
+                                color: Colors.white.withOpacity(0.59),
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w300,
                                 fontSize: 12),
                           ),
                         ),
@@ -86,7 +100,11 @@ class _PizdaState extends State<Pizda> {
                               Text(
                                 albums.album.albumName,
                                 style: TextStyle(
-                                    color: kSecondaryColor, fontSize: 14),
+                                  color: Colors.white.withOpacity(0.8),
+                                  fontSize: 16,
+                                  fontFamily: 'Poppins',
+                                  fontWeight: FontWeight.w500,
+                                ),
                                 textAlign: TextAlign.center,
                               ),
                             ],

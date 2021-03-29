@@ -11,12 +11,14 @@ class Top6 extends StatelessWidget {
     @required Future<Art> artist_List,
     this.keyArtist,
     this.artistId,
+    this.artistNAME,
   })  : _artist_List = artist_List,
         super(key: key);
 
   final Size size;
   final String keyArtist;
   final int artistId;
+  final String artistNAME;
   final Future<Art> _artist_List;
 
   @override
@@ -50,6 +52,7 @@ class Top6 extends StatelessWidget {
                         MaterialPageRoute(
                           builder: (context) => Pizda(
                             artistId: artists1.artist.artistId,
+                            artistNAME: artists1.artist.artistName,
                           ),
                         ),
                       );
@@ -64,6 +67,7 @@ class Top6 extends StatelessWidget {
                         MaterialPageRoute(
                           builder: (context) => Pizda(
                             artistId: artists2.artist.artistId,
+                            artistNAME: artists2.artist.artistName,
                           ),
                         ),
                       );
@@ -83,6 +87,7 @@ class Top6 extends StatelessWidget {
                         MaterialPageRoute(
                           builder: (context) => Pizda(
                             artistId: artists3.artist.artistId,
+                            artistNAME: artists3.artist.artistName,
                           ),
                         ),
                       );
@@ -97,6 +102,7 @@ class Top6 extends StatelessWidget {
                         MaterialPageRoute(
                           builder: (context) => Pizda(
                             artistId: artists4.artist.artistId,
+                            artistNAME: artists4.artist.artistName,
                           ),
                         ),
                       );
@@ -116,6 +122,7 @@ class Top6 extends StatelessWidget {
                         MaterialPageRoute(
                           builder: (context) => Pizda(
                             artistId: artists5.artist.artistId,
+                            artistNAME: artists5.artist.artistName,
                           ),
                         ),
                       );
@@ -130,6 +137,7 @@ class Top6 extends StatelessWidget {
                         MaterialPageRoute(
                           builder: (context) => Pizda(
                             artistId: artists6.artist.artistId,
+                            artistNAME: artists6.artist.artistName,
                           ),
                         ),
                       );
@@ -181,7 +189,8 @@ class SingleTile extends StatelessWidget {
       child: Center(
         child: Text(
           keyArtist,
-          style: TextStyle(color: Colors.white.withOpacity(0.59)),
+          style: TextStyle(
+              color: Colors.white.withOpacity(0.59), fontFamily: 'Poppins'),
         ),
       ),
     );
