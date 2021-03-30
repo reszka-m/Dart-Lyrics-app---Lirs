@@ -26,7 +26,7 @@ class TekstGlowny extends StatelessWidget {
             ],
             fontSize: 34,
             color: kSecondaryColor,
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.w600,
           ),
           textAlign: TextAlign.center,
         ),

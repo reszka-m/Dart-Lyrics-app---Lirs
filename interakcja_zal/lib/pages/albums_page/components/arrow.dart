@@ -1,19 +1,21 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 import '../../../app_icons.dart';
 import '../../../constants.dart';
 
-class Logo extends StatelessWidget {
-  const Logo({
+class Arrow extends StatelessWidget {
+  const Arrow({
     Key key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: Alignment.center,
+      alignment: Alignment.centerLeft,
       child: Padding(
-        padding: EdgeInsets.only(top: kDefaultPadding * 1.6),
+        padding: EdgeInsets.only(top: kDefaultPadding * 0.7),
         child: ShaderMask(
           blendMode: BlendMode.srcATop,
           shaderCallback: (bounds) => LinearGradient(
@@ -24,13 +26,12 @@ class Logo extends StatelessWidget {
               Color(0xFF2AF870),
             ],
           ).createShader(bounds),
-          child: SizedBox(
-            width: 130,
-            height: 42,
+          child: Transform.rotate(
+            angle: 180 * pi / 180,
             child: Icon(
-              MyFlutterApp.kLogo,
-              size: 40,
-              color: Colors.white,
+              MyFlutterApp.kArrow,
+              size: 20,
+              color: Colors.red,
             ),
           ),
         ),

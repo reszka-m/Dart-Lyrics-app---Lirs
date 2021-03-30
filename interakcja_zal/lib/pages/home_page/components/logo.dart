@@ -13,8 +13,7 @@ class Logo extends StatelessWidget {
     return Align(
       alignment: Alignment.centerLeft,
       child: Padding(
-        padding:
-            EdgeInsets.only(left: kDefaultPadding, top: kDefaultPadding),
+        padding: EdgeInsets.only(left: kDefaultPadding, top: kDefaultPadding),
         child: ShaderMask(
           blendMode: BlendMode.srcATop,
           shaderCallback: (bounds) => LinearGradient(
