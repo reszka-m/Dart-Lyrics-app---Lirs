@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:interakcja_zal/pages/home_page/components/logo.dart';
 import 'package:intl/intl.dart';
 import 'package:interakcja_zal/models/albums.dart';
 import 'package:interakcja_zal/services/api-manager.dart';
 import 'package:interakcja_zal/constants.dart';
 
-import 'components/logo.dart';
+
 
 class Pizda extends StatefulWidget {
   final int artistId;

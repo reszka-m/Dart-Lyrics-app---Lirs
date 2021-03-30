@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:interakcja_zal/models/artistsinfo.dart';
-import 'package:interakcja_zal/services/api-manager.dart';
+import 'package:interakcja_zal/pages/albums_page/albums.dart';
 import '../../../constants.dart';
-import '../pizda.dart';
 
 class Top6 extends StatelessWidget {
   const Top6({
