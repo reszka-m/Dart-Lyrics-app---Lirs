@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
-
-import '../../app_icons.dart';
-import '../../constants.dart';
+import '../../../app_icons.dart';
+import '../../../constants.dart';
 
 class Logo extends StatelessWidget {
   const Logo({
@@ -14,8 +13,7 @@ class Logo extends StatelessWidget {
     return Align(
       alignment: Alignment.centerLeft,
       child: Padding(
-        padding:
-            EdgeInsets.only(left: kDefaultPadding, top: kDefaultPadding),
+        padding: EdgeInsets.only(left: kDefaultPadding, top: kDefaultPadding),
         child: ShaderMask(
           blendMode: BlendMode.srcATop,
           shaderCallback: (bounds) => LinearGradient(
