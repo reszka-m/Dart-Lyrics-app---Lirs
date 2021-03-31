@@ -113,40 +113,55 @@ class ListSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Container(
-      padding: EdgeInsets.fromLTRB(15.0, 7.0, 15.0, 7.0),
+      margin: EdgeInsets.fromLTRB(15.0, 0, 15.0, 25.0),
       decoration: BoxDecoration(
-        border: Border(
-          bottom: BorderSide(color: Colors.black54, width: 4.0),
+        boxShadow: [
+          BoxShadow(
+            color: kPrimaryColor.withOpacity(0.25),
+            spreadRadius: 5,
+            blurRadius: 5,
+            offset: Offset(7, 7),
+          ),
+        ],
+        color: kPrimaryColor,
+        borderRadius: BorderRadius.circular(10),
+        border: Border.all(
+          width: 2,
+          color: kBorderColor,
         ),
       ),
+      height: size.height * 0.14,
       child: Row(
         children: <Widget>[
           SizedBox(
             width: 100,
-            child: Text(
-              "Data wydania: " + "\n" + datastring,
-              style: TextStyle(
-                  color: Colors.white.withOpacity(0.59),
-                  fontFamily: 'Poppins',
-                  fontWeight: FontWeight.w300,
-                  fontStyle: FontStyle.italic,
-                  fontSize: 12),
-            ),
+            child: Text("Data wydania: " + "\n" + datastring,
+                style: TextStyle(
+                    color: Colors.white.withOpacity(0.59),
+                    fontFamily: 'Poppins',
+                    fontWeight: FontWeight.w300,
+                    fontStyle: FontStyle.italic,
+                    fontSize: 12),
+                textAlign: TextAlign.center),
           ),
           Flexible(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                Text(
-                  albums.album.albumName,
-                  style: TextStyle(
-                    color: Colors.white.withOpacity(0.8),
-                    fontSize: 16,
-                    fontFamily: 'Poppins',
+                Center(
+                  child: Text(
+                    albums.album.albumName,
+                    style: TextStyle(
+                      color: Colors.white.withOpacity(0.8),
+                      fontSize: 16,
+                      fontFamily: 'Poppins',
+                    ),
+                    textAlign: TextAlign.center,
                   ),
-                  textAlign: TextAlign.center,
-                ),
+                )
               ],
             ),
           )

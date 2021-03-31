@@ -33,7 +33,7 @@ class Top6 extends StatelessWidget {
           var artists5 = snapshot.data.message.body.artistList[4];
           var artists6 = snapshot.data.message.body.artistList[5];
 
-          var asd = snapshot.data.message.body.artistList[1].artist.artistName;
+          
 
           return Column(
             children: [
@@ -162,6 +162,7 @@ class SingleTile extends StatelessWidget {
 
   final Size size;
   final String keyArtist;
+  
 
   @override
   Widget build(BuildContext context) {
@@ -173,7 +174,7 @@ class SingleTile extends StatelessWidget {
             color: kPrimaryColor.withOpacity(0.25),
             spreadRadius: 5,
             blurRadius: 5,
-            offset: Offset(3, 3),
+            offset: Offset(7, 7),
           ),
         ],
         color: kPrimaryColor,

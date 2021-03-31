@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-
 import 'package:http/http.dart' as http;
 import 'package:interakcja_zal/models/albums.dart';
 
@@ -32,7 +31,7 @@ class API_Manager {
   Future<Albums> getAlbums(wybraneID) async {
     var client = http.Client();
     var albums;
-    
+
     try {
       var response = await client.get(Uri.parse(
           'https://api.musixmatch.com/ws/1.1/artist.albums.get?artist_id=${wybraneID}&s_release_date=desc&g_album_name=1&apikey=eb7a33bd10b9eac57fe5fa0905684492'));
@@ -44,7 +43,6 @@ class API_Manager {
         var albums = Albums.fromJson(jsonMap);
 
         return albums;
-        
       }
     } catch (Expection) {
       return albums;
