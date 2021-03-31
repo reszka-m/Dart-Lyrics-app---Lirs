@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:interakcja_zal/pages/home_page/body1.dart';
+import 'package:interakcja_zal/pages/home_page/components/search.dart';
 
 class HomePage extends StatelessWidget {
   static String routeName = '/home';

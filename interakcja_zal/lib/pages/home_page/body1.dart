@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:interakcja_zal/pages/home_page/components/search.dart';
 import 'package:interakcja_zal/services/api-manager.dart';
 import 'package:interakcja_zal/models/artistsinfo.dart';
 import 'components/logo.dart';
@@ -28,6 +29,7 @@ class _Body1State extends State<Body1> {
           Logo(),
           TekstGlowny(),
           Top6(artist_List: _artist_List, size: size),
+          Search(),
         ],
       ),
     );
