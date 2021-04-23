@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:interakcja_zal/pages/results_page/tracksresults.dart';
 import '../../../app_icons.dart';
 
 class Search extends StatelessWidget {
@@ -61,9 +62,6 @@ class DataSearch extends SearchDelegate<String> {
   }
 
   @override
-  Widget buildResults(BuildContext context) {}
-
-  @override
   Widget buildSuggestions(BuildContext context) {
     final recent = query.isEmpty ? recentsong : searchsongs;
 
@@ -75,6 +73,32 @@ class DataSearch extends SearchDelegate<String> {
         title: Text(searchsongs[index]),
       ),
       itemCount: searchsongs.length,
+    );
+  }
+
+  @override
+  Widget buildResults(BuildContext context) {
+    // TODO: implement buildResults
+    if (query.length < 1) {
+      return Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Center(
+            child: Text(
+              "Dokładna nazwa piosenki lub artysty",
+            ),
+          )
+        ],
+      );
+    }
+
+    var results = query;
+    print(results);
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => Tracksresults(trackNAME: results),
+      ),
     );
   }
 }
