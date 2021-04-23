@@ -5,7 +5,6 @@ import 'package:interakcja_zal/models/albums.dart';
 
 import 'package:interakcja_zal/models/artistsinfo.dart';
 import 'package:interakcja_zal/models/lyrics.dart';
-import 'package:interakcja_zal/models/track.dart';
 
 class API_Manager {
   Future<Art> getArtists() async {
@@ -42,30 +41,13 @@ class API_Manager {
         var jsonMap = json.decode(jsonString);
 
         var albums = Albums.fromJson(jsonMap);
-        print(albums.message.body);
+
         return albums;
       }
     } catch (Expection) {
       return albums;
     }
     return albums;
-  }
-
-  Future<Trackks> getTracks(trak) async {
-    var client = http.Client();
-    var tracks;
-
-    var response = await client.get(Uri.parse(
-        'https://api.musixmatch.com/ws/1.1/track.search?q_artist=adele&page_size=10&page=1&s_track_rating=desc&apikey=eb7a33bd10b9eac57fe5fa0905684492'));
-
-    if (response.statusCode == 200) {
-      var jsonString = response.body;
-      var jsonMap = json.decode(jsonString);
-
-      var tracks = Trackks.fromJson(jsonMap);
-      print(tracks.message.body);
-      return tracks;
-    }
   }
 
   Future<Lyrics> getLyrics() async {
