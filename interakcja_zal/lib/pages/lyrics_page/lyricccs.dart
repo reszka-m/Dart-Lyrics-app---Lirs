@@ -67,14 +67,13 @@ class _LyricsresultState extends State<Lyricsresult> {
                 top: BorderSide(color: kSecondaryColor, width: 2.0),
               ),
             ),
-            height: size.height * 0.78,
+            height: size.height * 0.9,
             child: FutureBuilder<Lyrics>(
               future: _lyricss,
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
                   return Container(
-                    
-                    margin: EdgeInsets.fromLTRB(15.0, 15.0, 15.0, 0),
+                    margin: EdgeInsets.fromLTRB(15.0, 15.0, 15.0, 15.0),
                     decoration: BoxDecoration(
                       boxShadow: [
                         BoxShadow(
@@ -91,29 +90,23 @@ class _LyricsresultState extends State<Lyricsresult> {
                         color: kBorderColor,
                       ),
                     ),
-                    height: 100,
-                    child: Row(
+                    child: Column(
                       children: <Widget>[
                         Flexible(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.stretch,
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: <Widget>[
-                              Text(
-                                snapshot.data.message.body.lyrics.lyricsBody +
-                                    "\n" +
-                                    snapshot.data.message.body.lyrics
-                                        .lyricsCopyright,
-                                style: TextStyle(
-                                  color: Colors.white.withOpacity(1),
-                                  fontSize: 16,
-                                  fontFamily: 'Poppins',
-                                ),
-                                textAlign: TextAlign.center,
-                              ),
-                            ],
+                            child: SingleChildScrollView(
+                          child: Text(
+                            snapshot.data.message.body.lyrics.lyricsBody +
+                                "\n" +
+                                snapshot
+                                    .data.message.body.lyrics.lyricsCopyright,
+                            style: TextStyle(
+                              color: Colors.white.withOpacity(1),
+                              fontSize: 16,
+                              fontFamily: 'Poppins',
+                            ),
+                            textAlign: TextAlign.center,
                           ),
-                        )
+                        )),
                       ],
                     ),
                   );

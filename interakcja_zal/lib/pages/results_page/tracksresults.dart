@@ -72,7 +72,7 @@ class _TracksresultsState extends State<Tracksresults> {
                 top: BorderSide(color: kSecondaryColor, width: 2.0),
               ),
             ),
-            height: size.height * 0.78,
+            height: size.height * 0.90,
             child: FutureBuilder<Trackks>(
               future: _trackss,
               builder: (context, snapshot) {
@@ -144,18 +144,16 @@ class Tracks extends StatelessWidget {
               children: <Widget>[
                 GestureDetector(
                   onTap: () {
-                      print(albums.track.trackId);
+                    print(albums.track.trackId);
 
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => Lyricsresult( 
-                           lyricsID: albums.track.trackId
-                            
-                          ),
-                        ),
-                      );
-                    },
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            Lyricsresult(lyricsID: albums.track.trackId),
+                      ),
+                    );
+                  },
                   child: Text(
                     albums.track.artistName + "\n" + albums.track.trackName,
                     style: TextStyle(
