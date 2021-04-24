@@ -5,7 +5,7 @@ import 'package:interakcja_zal/models/albums.dart';
 
 import 'package:interakcja_zal/models/artistsinfo.dart';
 import 'package:interakcja_zal/models/lyrics.dart';
-import 'package:interakcja_zal/models/track.dart';
+import 'package:interakcja_zal/models/trackorartist.dart';
 
 class API_Manager {
   Future<Art> getArtists() async {
@@ -21,9 +21,11 @@ class API_Manager {
         var jsonMap = json.decode(jsonString);
 
         var artistList = Art.fromJson(jsonMap);
+        print(artistList.message);
         return artistList;
       }
     } catch (Expection) {
+      print(Expection);
       return artistList;
     }
     return artistList;
@@ -46,26 +48,33 @@ class API_Manager {
         return albums;
       }
     } catch (Expection) {
+      print(Expection);
       return albums;
     }
     return albums;
   }
 
-  Future<Trackks> getTracks(trak) async {
+  Future<Trackks> getTrack(trak) async {
     var client = http.Client();
-    var tracks;
+    var trackks;
 
-    var response = await client.get(Uri.parse(
-        'https://api.musixmatch.com/ws/1.1/track.search?q_artist=adele&page_size=10&page=1&s_track_rating=desc&apikey=eb7a33bd10b9eac57fe5fa0905684492'));
+    try {
+      var response = await client.get(Uri.parse(
+          'https://api.musixmatch.com/ws/1.1/track.search?q_track_artist=${trak}&page_size=30&page=1&s_track_rating=desc&apikey=eb7a33bd10b9eac57fe5fa0905684492'));
 
-    if (response.statusCode == 200) {
-      var jsonString = response.body;
-      var jsonMap = json.decode(jsonString);
+      if (response.statusCode == 200) {
+        var jsonString = response.body;
+        var jsonMap = json.decode(jsonString);
 
-      var tracks = Trackks.fromJson(jsonMap);
-      print(tracks.message.body);
-      return tracks;
+        var trackks = Trackks.fromJson(jsonMap);
+        print(trackks.message.body);
+        return trackks;
+      }
+    } catch (Expection) {
+      print(Expection);
+      return trackks;
     }
+    return trackks;
   }
 
   Future<Lyrics> getLyrics() async {

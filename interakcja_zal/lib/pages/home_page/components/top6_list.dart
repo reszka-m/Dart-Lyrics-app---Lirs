@@ -33,8 +33,6 @@ class Top6 extends StatelessWidget {
           var artists5 = snapshot.data.message.body.artistList[4];
           var artists6 = snapshot.data.message.body.artistList[5];
 
-          
-
           return Column(
             children: [
               Row(
@@ -162,7 +160,6 @@ class SingleTile extends StatelessWidget {
 
   final Size size;
   final String keyArtist;
-  
 
   @override
   Widget build(BuildContext context) {
@@ -189,8 +186,11 @@ class SingleTile extends StatelessWidget {
       child: Center(
         child: Text(
           keyArtist,
+          textAlign: TextAlign.center,
           style: TextStyle(
-              color: Colors.white.withOpacity(0.59), fontFamily: 'Poppins'),
+            color: Colors.white.withOpacity(0.59),
+            fontFamily: 'Poppins',
+          ),
         ),
       ),
     );

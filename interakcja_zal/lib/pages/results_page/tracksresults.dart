@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:interakcja_zal/models/track.dart';
-import 'package:interakcja_zal/pages/albums_page/components/arrow.dart';
-import 'package:interakcja_zal/pages/albums_page/components/logo.dart';
+import 'package:interakcja_zal/app_icons.dart';
+import 'package:interakcja_zal/models/trackorartist.dart';
+
 import 'package:interakcja_zal/pages/home_page/body1.dart';
+import 'package:interakcja_zal/pages/results_page/arrow.dart';
+import 'package:interakcja_zal/pages/results_page/logo.dart';
 import 'package:interakcja_zal/services/api-manager.dart';
 
 import '../../constants.dart';
@@ -20,7 +22,7 @@ class Tracksresults extends StatefulWidget {
 }
 
 class _TracksresultsState extends State<Tracksresults> {
-  Future<Trackks> _tracks;
+  Future<Trackks> _trackss;
 
   final String trackNAME;
 
@@ -28,7 +30,7 @@ class _TracksresultsState extends State<Tracksresults> {
 
   @override
   void initState() {
-    _tracks = API_Manager().getTracks(this.trackNAME);
+    _trackss = API_Manager().getTrack(this.trackNAME);
     super.initState();
   }
 
@@ -39,6 +41,30 @@ class _TracksresultsState extends State<Tracksresults> {
       body: Column(
         children: [
           Container(
+            child: Row(
+              children: <Widget>[
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Body1(),
+                      ),
+                    );
+                  },
+                  child: SizedBox(
+                    child: Arrow(),
+                  ),
+                ),
+                Container(
+                  width: size.width * 0.91,
+                  child: Logo(),
+                  alignment: Alignment.center,
+                ),
+              ],
+            ),
+          ),
+          Container(
             decoration: BoxDecoration(
               border: Border(
                 top: BorderSide(color: kSecondaryColor, width: 2.0),
@@ -46,15 +72,14 @@ class _TracksresultsState extends State<Tracksresults> {
             ),
             height: size.height * 0.78,
             child: FutureBuilder<Trackks>(
-              future: _tracks,
+              future: _trackss,
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
                   return ListView.builder(
                     itemCount: snapshot.data.message.body.trackList.length,
                     itemBuilder: (context, index) {
                       var albums = snapshot.data.message.body.trackList[index];
-
-                      return ListSection(trackList: albums);
+                      return Tracks(size: size, albums: albums);
                     },
                   );
                 } else
@@ -70,17 +95,18 @@ class _TracksresultsState extends State<Tracksresults> {
   }
 }
 
-class ListSection extends StatelessWidget {
-  const ListSection({
+class Tracks extends StatelessWidget {
+  const Tracks({
     Key key,
-    @required this.trackList,
+    @required this.size,
+    @required this.albums,
   }) : super(key: key);
 
-  final TrackList trackList;
+  final Size size;
+  final TrackList albums;
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Container(
       margin: EdgeInsets.fromLTRB(15.0, 0, 15.0, 25.0),
       decoration: BoxDecoration(
@@ -99,9 +125,16 @@ class ListSection extends StatelessWidget {
           color: kBorderColor,
         ),
       ),
-      height: size.height * 0.14,
+      height: size.height * 0.11,
       child: Row(
         children: <Widget>[
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Icon(MyFlutterApp.kDisc),
+            ],
+          ),
           Flexible(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -109,7 +142,7 @@ class ListSection extends StatelessWidget {
               children: <Widget>[
                 Center(
                   child: Text(
-                    trackList.track,
+                    albums.track.artistName + "\n" + albums.track.trackName,
                     style: TextStyle(
                       color: Colors.white.withOpacity(0.8),
                       fontSize: 16,

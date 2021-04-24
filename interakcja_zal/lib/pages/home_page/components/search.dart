@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:interakcja_zal/pages/results_page/tracksresults.dart';
 import '../../../app_icons.dart';
 
@@ -94,11 +95,11 @@ class DataSearch extends SearchDelegate<String> {
 
     var results = query;
     print(results);
-    Navigator.push(
+    SchedulerBinding.instance.addPostFrameCallback((timeStamp) {Navigator.push(
       context,
       MaterialPageRoute(
         builder: (context) => Tracksresults(trackNAME: results),
       ),
-    );
+    );});
   }
 }
