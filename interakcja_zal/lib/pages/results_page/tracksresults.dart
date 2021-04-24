@@ -3,7 +3,9 @@ import 'package:interakcja_zal/app_icons.dart';
 import 'package:interakcja_zal/models/trackorartist.dart';
 
 import 'package:interakcja_zal/pages/home_page/body1.dart';
+import 'package:interakcja_zal/pages/lyrics_page/lyricccs.dart';
 import 'package:interakcja_zal/pages/results_page/arrow.dart';
+import 'package:interakcja_zal/pages/results_page/disc.dart';
 import 'package:interakcja_zal/pages/results_page/logo.dart';
 import 'package:interakcja_zal/services/api-manager.dart';
 
@@ -130,9 +132,9 @@ class Tracks extends StatelessWidget {
         children: <Widget>[
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(MyFlutterApp.kDisc),
+              Disc(),
             ],
           ),
           Flexible(
@@ -140,7 +142,20 @@ class Tracks extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                Center(
+                GestureDetector(
+                  onTap: () {
+                      print(albums.track.trackId);
+
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Lyricsresult( 
+                           lyricsID: albums.track.trackId
+                            
+                          ),
+                        ),
+                      );
+                    },
                   child: Text(
                     albums.track.artistName + "\n" + albums.track.trackName,
                     style: TextStyle(
@@ -150,7 +165,7 @@ class Tracks extends StatelessWidget {
                     ),
                     textAlign: TextAlign.center,
                   ),
-                )
+                ),
               ],
             ),
           )

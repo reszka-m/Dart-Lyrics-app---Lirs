@@ -63,50 +63,38 @@ class Body {
 class LyricsClass {
   LyricsClass({
     this.lyricsId,
-    this.restricted,
-    this.instrumental,
+    this.explicit,
     this.lyricsBody,
-    this.lyricsLanguage,
     this.scriptTrackingUrl,
     this.pixelTrackingUrl,
-    this.htmlTrackingUrl,
     this.lyricsCopyright,
     this.updatedTime,
   });
 
   int lyricsId;
-  int restricted;
-  int instrumental;
+  int explicit;
   String lyricsBody;
-  String lyricsLanguage;
   String scriptTrackingUrl;
   String pixelTrackingUrl;
-  String htmlTrackingUrl;
   String lyricsCopyright;
   DateTime updatedTime;
 
   factory LyricsClass.fromJson(Map<String, dynamic> json) => LyricsClass(
         lyricsId: json["lyrics_id"],
-        restricted: json["restricted"],
-        instrumental: json["instrumental"],
+        explicit: json["explicit"],
         lyricsBody: json["lyrics_body"],
-        lyricsLanguage: json["lyrics_language"],
         scriptTrackingUrl: json["script_tracking_url"],
         pixelTrackingUrl: json["pixel_tracking_url"],
-        htmlTrackingUrl: json["html_tracking_url"],
         lyricsCopyright: json["lyrics_copyright"],
         updatedTime: DateTime.parse(json["updated_time"]),
       );
 
   Map<String, dynamic> toJson() => {
         "lyrics_id": lyricsId,
-        "restricted": restricted,
-        "instrumental": instrumental,
+        "explicit": explicit,
         "lyrics_body": lyricsBody,
-        "lyrics_language": lyricsLanguage,
         "script_tracking_url": scriptTrackingUrl,
         "pixel_tracking_url": pixelTrackingUrl,
-        "html_tracking_url": htmlTrackingUrl,
         "lyrics_copyright": lyricsCopyright,
         "updated_time": updatedTime.toIso8601String(),
       };

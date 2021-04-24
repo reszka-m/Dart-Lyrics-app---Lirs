@@ -77,22 +77,24 @@ class API_Manager {
     return trackks;
   }
 
-  Future<Lyrics> getLyrics() async {
+  Future<Lyrics> getLyrics(lyricid) async {
     var client = http.Client();
     var lyrics;
 
     try {
       var response = await client.get(Uri.parse(
-          'https://api.musixmatch.com/ws/1.1/matcher.lyrics.get?q_track=sexy%20and%20i%20know%20it&q_artist=lmfao&apikey=eb7a33bd10b9eac57fe5fa0905684492'));
+          'https://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=${lyricid}&apikey=eb7a33bd10b9eac57fe5fa0905684492'));
 
       if (response.statusCode == 200) {
         var jsonString = response.body;
         var jsonMap = json.decode(jsonString);
 
         var lyrics = Lyrics.fromJson(jsonMap);
+        print(lyrics.message.body.lyrics.lyricsBody);
         return lyrics;
       }
     } catch (Expection) {
+      print(Expection);
       return lyrics;
     }
     return lyrics;

@@ -14,7 +14,7 @@ class TekstGlowny extends StatelessWidget {
       height: 120,
       child: Center(
         child: Text(
-          'Top 6 \nartystów z Polski',
+          'Top 6 \nartystów w Polsce',
           style: TextStyle(
             fontFamily: 'Poppins',
             shadows: <Shadow>[
