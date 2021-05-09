@@ -8,13 +8,14 @@ import 'package:interakcja_zal/models/lyrics.dart';
 import 'package:interakcja_zal/models/trackorartist.dart';
 
 class API_Manager {
+  String key = "eb7a33bd10b9eac57fe5fa0905684492";
   Future<Art> getArtists() async {
     var client = http.Client();
     var artistList;
 
     try {
       var response = await client.get(Uri.parse(
-          'https://api.musixmatch.com/ws/1.1/chart.artists.get?page=1&page_size=6&country=pl&apikey=eb7a33bd10b9eac57fe5fa0905684492'));
+          'https://api.musixmatch.com/ws/1.1/chart.artists.get?page=1&page_size=6&country=pl&apikey=$key'));
 
       if (response.statusCode == 200) {
         var jsonString = response.body;
@@ -37,7 +38,7 @@ class API_Manager {
 
     try {
       var response = await client.get(Uri.parse(
-          'https://api.musixmatch.com/ws/1.1/artist.albums.get?artist_id=${wybraneID}&s_release_date=desc&g_album_name=1&apikey=eb7a33bd10b9eac57fe5fa0905684492'));
+          'https://api.musixmatch.com/ws/1.1/artist.albums.get?artist_id=${wybraneID}&s_release_date=desc&g_album_name=1&apikey=$key'));
 
       if (response.statusCode == 200) {
         var jsonString = response.body;
@@ -60,7 +61,7 @@ class API_Manager {
 
     try {
       var response = await client.get(Uri.parse(
-          'https://api.musixmatch.com/ws/1.1/track.search?q_track_artist=${trak}&page_size=30&page=1&s_track_rating=desc&apikey=eb7a33bd10b9eac57fe5fa0905684492'));
+          'https://api.musixmatch.com/ws/1.1/track.search?q_track_artist=${trak}&page_size=30&page=1&s_track_rating=desc&apikey=$key'));
 
       if (response.statusCode == 200) {
         var jsonString = response.body;
@@ -83,7 +84,7 @@ class API_Manager {
 
     try {
       var response = await client.get(Uri.parse(
-          'https://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=${lyricid}&apikey=eb7a33bd10b9eac57fe5fa0905684492'));
+          'https://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=${lyricid}&apikey=$key'));
 
       if (response.statusCode == 200) {
         var jsonString = response.body;

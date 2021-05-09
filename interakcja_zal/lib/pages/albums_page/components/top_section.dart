@@ -20,7 +20,7 @@ class TopSection extends StatelessWidget {
           right: kDefaultPadding * 0.5,
           top: kDefaultPadding * 0.4),
       child: Text(
-        "Albumy wykonawcy:\n" + artistNAME,
+        "Artist albums:\n" + artistNAME,
         style: TextStyle(
           fontFamily: 'Poppins',
           fontSize: 17,
