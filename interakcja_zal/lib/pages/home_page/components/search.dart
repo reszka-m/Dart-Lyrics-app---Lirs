@@ -2,20 +2,39 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:interakcja_zal/pages/results_page/tracksresults.dart';
 import '../../../app_icons.dart';
+import '../../../constants.dart';
 
 class Search extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Container(
-      color: Colors.red,
-      child: SizedBox(
-        width: 100,
-        child: IconButton(
-          icon: Icon(Icons.search),
-          onPressed: () {
-            showSearch(context: context, delegate: DataSearch());
-          },
-        ),
+      margin: EdgeInsets.all(20),
+      width: 200,
+      decoration: BoxDecoration(
+        color: Color(0xFF1D1919).withOpacity(0.47),
+        borderRadius: BorderRadius.circular(50),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Text(
+            "Search for lyrics..",
+            style: TextStyle(
+              fontFamily: 'Poppins',
+              color: Color(0xFFBCB0B0).withOpacity(0.5),
+            ),
+          ),
+          IconButton(
+            icon: Icon(
+              Icons.search,
+              color: Color(0xFF2ED048).withOpacity(0.53),
+            ),
+            onPressed: () {
+              showSearch(context: context, delegate: DataSearch());
+            },
+          ),
+        ],
       ),
     );
   }
@@ -95,11 +114,15 @@ class DataSearch extends SearchDelegate<String> {
 
     var results = query;
     print(results);
-    SchedulerBinding.instance.addPostFrameCallback((timeStamp) {Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => Tracksresults(trackNAME: results),
-      ),
-    );});
+    SchedulerBinding.instance.addPostFrameCallback(
+      (timeStamp) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => Tracksresults(trackNAME: results),
+          ),
+        );
+      },
+    );
   }
 }
