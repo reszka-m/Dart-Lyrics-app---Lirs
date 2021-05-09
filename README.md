@@ -1,5 +1,5 @@
-## Interakcja-Zal
-Interakcja Człowiek-Komputer, Zaliczenie
+## Dart Lyrics app - Lirs
+This app has been made to pass interakcje czlowiek-komputer class in our college. It's a simple app for searching lyrics and albums of various artists.
 ## Table of contents
 * [General info](#general-info)
 * [Screenshots](#screenshots)
