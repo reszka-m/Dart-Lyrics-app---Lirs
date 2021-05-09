@@ -15,9 +15,7 @@ class Arrow extends StatelessWidget {
     return Align(
       alignment: Alignment.centerLeft,
       child: Padding(
-        padding: EdgeInsets.only(
-          top: kDefaultPadding,
-        ),
+        padding: EdgeInsets.only(top: kDefaultPadding * 0.7),
         child: ShaderMask(
           blendMode: BlendMode.srcATop,
           shaderCallback: (bounds) => LinearGradient(

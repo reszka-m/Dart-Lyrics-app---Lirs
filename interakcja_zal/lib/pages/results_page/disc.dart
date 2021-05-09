@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:interakcja_zal/constants.dart';
 
-import '../../../app_icons.dart';
-
-
+import '../../app_icons.dart';
 
 class Disc extends StatelessWidget {
   const Disc({
