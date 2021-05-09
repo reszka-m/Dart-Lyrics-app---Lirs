@@ -1,15 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:interakcja_zal/app_icons.dart';
 import 'package:interakcja_zal/models/trackorartist.dart';
-
-import 'package:interakcja_zal/pages/home_page/body1.dart';
-import 'package:interakcja_zal/pages/lyrics_page/lyricccs.dart';
-import 'package:interakcja_zal/pages/results_page/arrow.dart';
-import 'package:interakcja_zal/pages/results_page/disc.dart';
-import 'package:interakcja_zal/pages/results_page/logo.dart';
+import 'package:interakcja_zal/pages/results_page/components/list_section.dart';
 import 'package:interakcja_zal/services/api-manager.dart';
-
-import '../../constants.dart';
+import 'components/upper_bar.dart';
 
 class Tracksresults extends StatefulWidget {
   final String trackNAME;
@@ -42,131 +35,8 @@ class _TracksresultsState extends State<Tracksresults> {
     return Scaffold(
       body: Column(
         children: [
-          Container(
-            child: Row(
-              children: <Widget>[
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => Body1(),
-                      ),
-                    );
-                  },
-                  child: SizedBox(
-                    child: Arrow(),
-                  ),
-                ),
-                Container(
-                  width: size.width * 0.91,
-                  child: Logo(),
-                  alignment: Alignment.center,
-                ),
-              ],
-            ),
-          ),
-          Container(
-            decoration: BoxDecoration(
-              border: Border(
-                top: BorderSide(color: kSecondaryColor, width: 2.0),
-              ),
-            ),
-            height: size.height * 0.90,
-            child: FutureBuilder<Trackks>(
-              future: _trackss,
-              builder: (context, snapshot) {
-                if (snapshot.hasData) {
-                  return ListView.builder(
-                    itemCount: snapshot.data.message.body.trackList.length,
-                    itemBuilder: (context, index) {
-                      var albums = snapshot.data.message.body.trackList[index];
-                      return Tracks(size: size, albums: albums);
-                    },
-                  );
-                } else
-                  return Container(
-                    child: Center(child: CircularProgressIndicator()),
-                  );
-              },
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class Tracks extends StatelessWidget {
-  const Tracks({
-    Key key,
-    @required this.size,
-    @required this.albums,
-  }) : super(key: key);
-
-  final Size size;
-  final TrackList albums;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.fromLTRB(15.0, 0, 15.0, 25.0),
-      decoration: BoxDecoration(
-        boxShadow: [
-          BoxShadow(
-            color: kPrimaryColor.withOpacity(0.25),
-            spreadRadius: 5,
-            blurRadius: 5,
-            offset: Offset(7, 7),
-          ),
-        ],
-        color: kPrimaryColor,
-        borderRadius: BorderRadius.circular(10),
-        border: Border.all(
-          width: 2,
-          color: kBorderColor,
-        ),
-      ),
-      height: size.height * 0.11,
-      child: Row(
-        children: <Widget>[
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Disc(),
-            ],
-          ),
-          Flexible(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                GestureDetector(
-                  onTap: () {
-                    print(albums.track.trackId);
-
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) =>
-                            Lyricsresult(lyricsID: albums.track.trackId),
-                      ),
-                    );
-                  },
-                  child: Text(
-                    albums.track.artistName + "\n" + albums.track.trackName,
-                    style: TextStyle(
-                      color: Colors.white.withOpacity(0.8),
-                      fontSize: 16,
-                      fontFamily: 'Poppins',
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-              ],
-            ),
-          )
+          UpperBar(size: size),
+          ListSection(size: size, trackss: _trackss),
         ],
       ),
     );
