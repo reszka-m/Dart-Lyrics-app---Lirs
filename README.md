@@ -34,9 +34,9 @@ Tu run this project, turn on the developer mode in your mobile device, connect i
  flutter install 
 ```
 ## Features
--Main page: Top six listed artists from e.g: Poland
--Albums page: Artists albums names and dates of releases
--Search for lyrics: Searching for lyrics by artists name or track name
+- Main page: Top six listed artists from e.g: Poland
+- Albums page: Artists albums names and dates of releases
+- Search for lyrics: Searching for lyrics by artists name or track name
 ## Status
 Although project is finished, there is still plenty of room for some improvments. A lot of features can be add e.g: 
 genre for tracks, choosable country for starting page - those are some suggestions.
