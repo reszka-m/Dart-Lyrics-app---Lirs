@@ -49,12 +49,13 @@ class _LyricsresultState extends State<Lyricsresult> {
                       ),
                     );
                   },
-                  child: SizedBox(
+                  child: Container(
+                    margin: EdgeInsets.only(left: 10),
                     child: Arrow(),
                   ),
                 ),
                 Container(
-                  width: size.width * 0.91,
+                  width: size.width * 0.85,
                   child: Logo(),
                   alignment: Alignment.center,
                 ),
@@ -73,6 +74,7 @@ class _LyricsresultState extends State<Lyricsresult> {
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
                   return Container(
+                    padding: EdgeInsets.all(20),
                     margin: EdgeInsets.fromLTRB(15.0, 15.0, 15.0, 15.0),
                     decoration: BoxDecoration(
                       boxShadow: [

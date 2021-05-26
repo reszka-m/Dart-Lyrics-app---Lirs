@@ -5,10 +5,8 @@ import 'package:interakcja_zal/pages/lyrics_page/lyricccs.dart';
 import 'package:interakcja_zal/pages/results_page/components/arrow.dart';
 import 'package:interakcja_zal/pages/results_page/components/logo.dart';
 
-
 import '../../../constants.dart';
 import 'disc.dart';
-
 
 class UpperBar extends StatelessWidget {
   const UpperBar({
@@ -87,37 +85,44 @@ class Tracks extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Disc(),
+              Container(
+                margin: EdgeInsets.only(left: 6),
+                child: Disc(),
+              ),
             ],
           ),
           Flexible(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                GestureDetector(
-                  onTap: () {
-                    print(albums.track.trackId);
+            child: Container(
+              margin: EdgeInsets.only(left: 20),
+              width: 270,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  GestureDetector(
+                    onTap: () {
+                      print(albums.track.trackId);
 
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) =>
-                            Lyricsresult(lyricsID: albums.track.trackId),
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              Lyricsresult(lyricsID: albums.track.trackId),
+                        ),
+                      );
+                    },
+                    child: Text(
+                      albums.track.artistName + "\n" + albums.track.trackName,
+                      style: TextStyle(
+                        color: Colors.white.withOpacity(0.8),
+                        fontSize: 16,
+                        fontFamily: 'Poppins',
                       ),
-                    );
-                  },
-                  child: Text(
-                    albums.track.artistName + "\n" + albums.track.trackName,
-                    style: TextStyle(
-                      color: Colors.white.withOpacity(0.8),
-                      fontSize: 16,
-                      fontFamily: 'Poppins',
+                      textAlign: TextAlign.center,
                     ),
-                    textAlign: TextAlign.center,
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           )
         ],

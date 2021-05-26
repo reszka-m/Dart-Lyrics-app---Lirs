@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:interakcja_zal/app_icons.dart';
 import 'package:interakcja_zal/models/artistsinfo.dart';
 import 'package:interakcja_zal/pages/albums_page/albums.dart';
 import '../../../constants.dart';
@@ -183,15 +184,43 @@ class SingleTile extends StatelessWidget {
       ),
       height: size.height * 0.14,
       width: size.width * 0.44,
-      child: Center(
-        child: Text(
-          keyArtist,
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            color: Colors.white.withOpacity(0.59),
-            fontFamily: 'Poppins',
+      child: Column(
+        children: [
+          Container(
+            margin: EdgeInsets.only(left: 6, top: 6),
+            alignment: Alignment.centerLeft,
+            child: Icon(
+              MyFlutterApp.kDisc,
+              color: kSecondaryColor,
+            ),
           ),
-        ),
+          Container(
+            margin: EdgeInsets.only(
+              top: size.height * 0.003,
+            ),
+            child: Text(
+              keyArtist,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  color: Colors.white.withOpacity(0.59),
+                  fontFamily: 'Poppins',
+                  fontSize: 15),
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.only(top: size.height * 0.02),
+            height: 15,
+            width: 100,
+            child: Text(
+              "Show albums",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: kSecondaryColor,
+                fontSize: 12,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

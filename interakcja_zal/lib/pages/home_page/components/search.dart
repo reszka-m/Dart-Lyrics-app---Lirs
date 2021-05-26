@@ -15,26 +15,31 @@ class Search extends StatelessWidget {
         color: Color(0xFF1D1919).withOpacity(0.47),
         borderRadius: BorderRadius.circular(50),
       ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          Text(
-            "Search for lyrics..",
-            style: TextStyle(
-              fontFamily: 'Poppins',
-              color: Color(0xFFBCB0B0).withOpacity(0.5),
+      child: GestureDetector(
+        onTap: () {
+          showSearch(context: context, delegate: DataSearch());
+        },
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Text(
+              "Search for lyrics..",
+              style: TextStyle(
+                fontFamily: 'Poppins',
+                color: Color(0xFFBCB0B0).withOpacity(0.5),
+              ),
             ),
-          ),
-          IconButton(
-            icon: Icon(
-              Icons.search,
-              color: Color(0xFF2ED048).withOpacity(0.53),
+            IconButton(
+              icon: Icon(
+                Icons.search,
+                color: Color(0xFF2ED048).withOpacity(0.53),
+              ),
+              onPressed: () {
+                showSearch(context: context, delegate: DataSearch());
+              },
             ),
-            onPressed: () {
-              showSearch(context: context, delegate: DataSearch());
-            },
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
