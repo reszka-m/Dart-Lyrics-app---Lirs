@@ -37,6 +37,7 @@ class _LyricsresultState extends State<Lyricsresult> {
     return Scaffold(
       body: Column(
         children: [
+          SizedBox(height: 35),
           Container(
             child: Row(
               children: <Widget>[
@@ -68,7 +69,7 @@ class _LyricsresultState extends State<Lyricsresult> {
                 top: BorderSide(color: kSecondaryColor, width: 2.0),
               ),
             ),
-            height: size.height * 0.9,
+            height: size.height * 0.85,
             child: FutureBuilder<Lyrics>(
               future: _lyricss,
               builder: (context, snapshot) {

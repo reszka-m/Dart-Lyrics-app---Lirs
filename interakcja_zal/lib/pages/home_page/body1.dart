@@ -26,6 +26,9 @@ class _Body1State extends State<Body1> {
     return Scaffold(
       body: Column(
         children: [
+          SizedBox(
+            height: 40,
+          ),
           Logo(),
           TekstGlowny(),
           Top6(artist_List: _artist_List, size: size),

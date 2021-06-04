@@ -35,6 +35,7 @@ class _TracksresultsState extends State<Tracksresults> {
     return Scaffold(
       body: Column(
         children: [
+          SizedBox(height: 35),
           UpperBar(size: size),
           ListSection(size: size, trackss: _trackss),
         ],

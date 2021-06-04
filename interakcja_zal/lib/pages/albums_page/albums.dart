@@ -39,6 +39,7 @@ class _PizdaState extends State<Pizda> {
     return Scaffold(
       body: Column(
         children: [
+          SizedBox(height: 35),
           UpperBar(size: size),
           TopSection(artistNAME: artistNAME, size: size),
           FullListSection(size: size, albums: _albums),

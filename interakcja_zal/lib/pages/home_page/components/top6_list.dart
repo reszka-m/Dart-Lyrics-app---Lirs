@@ -182,7 +182,7 @@ class SingleTile extends StatelessWidget {
           color: kBorderColor,
         ),
       ),
-      height: size.height * 0.14,
+      height: size.height * 0.15,
       width: size.width * 0.44,
       child: Column(
         children: [

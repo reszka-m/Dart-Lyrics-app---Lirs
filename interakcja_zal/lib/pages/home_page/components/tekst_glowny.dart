@@ -10,7 +10,8 @@ class TekstGlowny extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: kDefaultPadding, bottom: kDefaultPadding),
+      margin:
+          EdgeInsets.only(top: kDefaultPadding / 2, bottom: kDefaultPadding),
       height: 120,
       child: Center(
         child: Text(

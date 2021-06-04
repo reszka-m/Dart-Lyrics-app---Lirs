@@ -27,7 +27,7 @@ class ListSection extends StatelessWidget {
           ),
         ),
       ),
-      height: size.height * 0.85,
+      height: size.height * 0.8,
       child: FutureBuilder<Trackks>(
         future: _trackss,
         builder: (context, snapshot) {

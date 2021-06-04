@@ -9,7 +9,8 @@ class FullListSection extends StatelessWidget {
     Key key,
     @required this.size,
     @required Future<Albums> albums,
-  }) : _albums = albums, super(key: key);
+  })  : _albums = albums,
+        super(key: key);
 
   final Size size;
   final Future<Albums> _albums;
@@ -18,14 +19,14 @@ class FullListSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.only(
-        top: kDefaultPadding * 0,
+        top: 0,
       ),
       decoration: BoxDecoration(
         border: Border(
           top: BorderSide(color: kSecondaryColor, width: 2.0),
         ),
       ),
-      height: size.height * 0.78,
+      height: size.height * 0.72,
       child: FutureBuilder<Albums>(
         future: _albums,
         builder: (context, snapshot) {
@@ -36,8 +37,7 @@ class FullListSection extends StatelessWidget {
                 var albums = snapshot.data.message.body.albumList[index];
                 String datastring = DateFormat('yyyy-MM-dd')
                     .format(albums.album.albumReleaseDate);
-                return ListSection(
-                    datastring: datastring, albums: albums);
+                return ListSection(datastring: datastring, albums: albums);
               },
             );
           } else
