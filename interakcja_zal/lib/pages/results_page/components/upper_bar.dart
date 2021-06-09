@@ -115,7 +115,7 @@ class Tracks extends StatelessWidget {
                       albums.track.artistName + "\n" + albums.track.trackName,
                       style: TextStyle(
                         color: Colors.white.withOpacity(0.8),
-                        fontSize: 16,
+                        fontSize: albums.track.artistName.length > 20 ? 12 : 16,
                         fontFamily: 'Poppins',
                       ),
                       textAlign: TextAlign.center,
