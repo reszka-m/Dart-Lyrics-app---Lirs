@@ -204,7 +204,7 @@ class SingleTile extends StatelessWidget {
               style: TextStyle(
                   color: Colors.white.withOpacity(0.59),
                   fontFamily: 'Poppins',
-                  fontSize: 15),
+                  fontSize: keyArtist.length > 20 ? 12 : 15),
             ),
           ),
           Container(
